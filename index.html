@@ -4,24 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style/reset.css">
+    <link rel="stylesheet" href="style/style.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>Agenda</h1>
-    <h2 id = "nome">Nome</h1>
-    <input type="text" placeholder="Seu Nome Completo Aqui">
-    <h2 id = "telefone">Telefone</h1>
-    <input type="text" placeholder="(xx) xxxxx-xxxx">
-    <h2 id = "email">E-mail</h1>
-    <input type="text" placeholder="emailexemplo@email.com">
-    <button id= "botao">Adicionar</button>
+    <header class="header">
+        <img class="img" src="img/list_pixel.svg">
+        <img class="menu" src="img/icon-menu.svg">
+    </header>
+    <h1 class="title">My Contact List</h1>
+    <main class="content">
+        <div class="main">
+            <form action="" class="add" id="newItem">
+                <label for="item" id="name">Name</label><br>
+                <input  type="text" id="input" name="name" placeholder="Name of your contact">
+                <label for="item" id="telephone">Telephone</label><br>
+                <input type="number" id="input" name="telephone"  placeholder="(xx) xxxxx-xxxx">
+                <label for="item" id="email">E-mail</label><br> 
+                <input type="text" id="input" name="email"  placeholder="emailexemple@email.com">
+                <input type="submit" value="Add" class="button">
+            </form>    
+        </div>
 
-    <ul id = "itens">
-        <li></li>
+    <ul class="list" id ="list">
+
     </ul>
 
+</main>
     <script src="main.js"></script>
 
 </body>
