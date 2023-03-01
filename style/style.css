@@ -30,7 +30,7 @@ main {
     margin-top: 2em;
     padding: 1em;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width:auto    
 }
 
@@ -116,15 +116,14 @@ main {
 .list{
     display: flex;
     list-style: none;
-    justify-content: center;
-    align-items: center;
     flex-direction: column ;
-    width: 20em; 
-    margin: auto;
-    margin-top: 2em;
+    width: 50%; 
     text-align: center;
     gap: 1em;
     box-sizing: border-box;
+    height: 70vh;
+    overflow-y: scroll;
+    padding: 20px;
 }
 
 .name{
@@ -139,4 +138,8 @@ main {
 .listing{
     border: 5px solid red;
     background-color: #41FF00;
+}
+
+.principal {
+    width: 50%;
 }

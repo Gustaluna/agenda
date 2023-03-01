@@ -1,6 +1,7 @@
 const form = document.getElementById('newItem');
 const list = document.getElementById("list")
 
+
 form.addEventListener("submit", (event) => {
     event.preventDefault()
 
@@ -8,28 +9,45 @@ form.addEventListener("submit", (event) => {
     const telephone = event.target.elements['telephone']
     const email =  event.target.elements['email']
 
-    createElement(name?.value, telephone?.value, email?.value)
-    name.value = ""
-    telephone.value = ""
-    email.value = ""
+    const formularioValido = validaFormulario(name?.value, telephone?.value, email?.value)
+
+    if (formularioValido == false){
+        alert("Insira seus dados completos")
+    }else{
+        createElement(name?.value, telephone?.value, email?.value)
+        name.value = ""
+        telephone.value = ""
+        email.value = ""
+    }
+   
 })
 
-function createElement(name, telephone, email) {
-    const newUl = document.createElement('ul')
-    newUl.classList.add('listing')
-    const newName = document.createElement('li')
+function createLi(text,elementUl){
+    
+    const newName = document.createElement('p')
     newName.classList.add('item','back')
-    newName.innerHTML += name 
-    newUl.appendChild(newName)
-    newUl.classList.add('listing')
-    const newTel = document.createElement('li')
-    newTel.classList.add('item','back')  
-    newTel.innerHTML += telephone
-    newUl.appendChild(newTel)
-    newUl.classList.add('listing')
-    const newEmail = document.createElement('li')
-    newEmail.classList.add('item', 'back')  
-    newEmail.innerHTML += email   
-    newUl.appendChild(newEmail)
-    list.appendChild(newUl)
+    newName.innerHTML += text 
+    elementUl.appendChild(newName)
+}
+
+function createElement(name, telephone, email) {
+    const newLi = document.createElement('li')
+    newLi.classList.add('listing')
+    
+    createLi(name, newLi)
+
+    createLi(telephone, newLi)
+
+    createLi(email, newLi)
+
+    
+    list.appendChild(newLi)
+}
+
+function validaFormulario(name, telephone, email) {
+    if(name == "" || String(telephone).length <= 10 || email == "" || !email.includes("@") ){
+        return false
+    } else{
+        return true
+    }
 }
